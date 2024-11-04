@@ -37,4 +37,18 @@ for index, vector in enumerate(vectors):
         max_similarity = similarity
         most_similar_index = index
 
-print(documents[most_similar_index])
+prompt = f"""以下の質問に以下の情報をベースにして答えてください
+# ユーザの質問
+{question}
+
+# 情報
+{documents[most_similar_index]}
+"""
+
+response = client.completions.create(
+    model="gpt-3.5-turbo-instruct",
+    prompt=prompt,
+    max_tokens=200
+)
+
+print(response.choices[0].text)
