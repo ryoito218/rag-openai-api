@@ -16,12 +16,12 @@ def vectorize_text(text):
     )
     return response.data[0].embedding
 
-question = "2023年の第1事業部の売上はどのくらい？"
+question = "質問を入力"
 
 documents = [
-    "2023年上期売上200億円, 下期売上300億円",
-    "2023年第1事業部売上300億円, 第2事業部売上150億円, 第3事業部売上50億円",
-    "2024年は全社で1000億円の売り上げを目指す"
+    "ドキュメント1",
+    "ドキュメント2",
+    "ドキュメント3"
 ]
 
 vectors = [vectorize_text(doc) for doc in documents]
